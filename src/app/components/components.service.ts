@@ -19,6 +19,10 @@ export class ComponentsService {
     return this.httpClient.get('http://localhost:5000/api/categoryHouses/');
   }
 
+  public listAllHouse(): Observable<any> {
+    return this.httpClient.get('http://localhost:5000/api/housesss/');
+  }
+
   public listCategoryRoom(): Observable<any> {
     return this.httpClient.get('http://localhost:5000/api/categoryRooms/');
   }
@@ -75,6 +79,22 @@ export class ComponentsService {
 
   public deleteHouse(id: number): Observable<any> {
     return this.httpClient.delete<any>(this.urlApi + id);
+  }
+
+  public searchByDiaChi(diaChi: string): Observable<any> {
+    return this.httpClient.get<any>('http://localhost:5000//api/findAllByDiaChiContains?house=' + diaChi);
+  }
+
+  public searchBySoLuongPhongNgu(soLuong: string): Observable<any> {
+    return this.httpClient.get<any>('http://localhost:5000//api/findAllBySoLuongPhongNguContains?house=' + soLuong);
+  }
+
+  public searchBySoLuongPhongTam(soLuong: string): Observable<any> {
+    return this.httpClient.get<any>('http://localhost:5000//api/findAllBySoLuongPhongTamContains?house=' + soLuong);
+  }
+
+  public searchBetween(input: string, output: string): Observable<any> {
+    return this.httpClient.get<any>('http://localhost:5000//api/findAllByGiaTienTheoDemBetween?dauDuoi=' + input + '&dauTren=' + output);
   }
 }
 

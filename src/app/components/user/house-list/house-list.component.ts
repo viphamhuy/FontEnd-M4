@@ -15,7 +15,7 @@ export class HouseListComponent implements OnInit {
   constructor(private componentsService: ComponentsService) { }
 
   ngOnInit(): void {
-    this.componentsService.listHouse().subscribe( result => {
+    this.componentsService.listAllHouse().subscribe( result => {
       this.houseList = result;
     });
   }
